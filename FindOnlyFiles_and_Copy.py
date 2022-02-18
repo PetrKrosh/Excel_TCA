@@ -1,5 +1,6 @@
-# ЭТОТ ФАЙЛ ЗАПУСКАЕМ НА UKW
-# ИЗ ПАПКИ  C:\Users\pkro\PycharmProjects\Excel
+# SRC_Folder можем использовать на сетевом диске
+# DST_Folder на WS
+# KES. отключить при необходимости
 
 import os
 import shutil
@@ -13,15 +14,9 @@ src_folder = src_folder + "/"
 dist_folder = askdirectory(title='Select Directory DESTINATION')
 dist_folder = dist_folder + "/"
 
-# src_folder = input('Введите путь к папке, в конце укажите символ \:')
-# dist_folder = input('Введите путь к Distination, в конце укажите символ \:')
-
 for root, dirs, files in os.walk(src_folder):
     for filename in files:
         path_file = os.path.join(root, filename)
         for item in list_files:
             if path_file.find(item) != -1: # определяем вхождение части имени файла в имя файла
-                # path = src_folder + filename
                 shutil.copy2(path_file, dist_folder)
-
-                # shutil.move(path, dist_folder) # перемещяем найденный56789-
